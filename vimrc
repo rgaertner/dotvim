@@ -1,7 +1,8 @@
 :set ts=4
 :filetype plugin on
-:syntax enable
+:syntax on
 :colorscheme golden 
+set number
 
 if has("autocmd")
 	autocmd bufwritepost .vimrc source $MYVIMRC
