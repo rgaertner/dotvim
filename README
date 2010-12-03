@@ -1,10 +1,10 @@
 Installation:
 
-	git clone git://github.com/rgaertne/dotvim.git ~/.vim
+	git clone git://github.com/rgaertner/dotvim.git ~/.vim
 
 Create symlinks:
 
-	ln -s ~/dotfiles/vimrc ~/.vimrc
+	ln -s ~/.vim/vimrc ~/.vimrc
 
 Add plugins to repo:
 
