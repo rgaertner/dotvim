@@ -8,7 +8,7 @@ Create symlinks:
 
 Add plugins to repo:
 
-	cd ~/.vim/bundle
+	cd ~/.vim
 	git submodule add <url to plugin git repo> bundle/<plugin>
 	git add .
 	git commit -m "commit comment"
@@ -22,5 +22,5 @@ Obtain plugins:
 Update plugins:
 
 	cd ~/.vim/bundle/<plugin>
-	git pull
+	git pull origin master
 
