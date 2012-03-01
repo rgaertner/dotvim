@@ -33,6 +33,12 @@ vmap <C-Down> ]egv
 let mapleader = ","
 nmap <leader>v :tabedit $MYVIMRC<CR>
 
+
+" Press F3 to toggle insert(paste) on/off.
+:noremap <F3> :set paste! paste?<CR>
+" Press F4 to toggle highlighting on/off, and show current value.
+:noremap <F4> :set hlsearch! hlsearch?<CR>
+
 let java_highlight_all=1
 let java_highlight_functions="style"
 
