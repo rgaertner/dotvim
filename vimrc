@@ -11,6 +11,7 @@ set number
 
 if has("autocmd")
 	autocmd bufwritepost .vimrc source $MYVIMRC
+	autocmd BufRead,BufNewFile *.json setfiletype javascript
 endif
 
 " show highlighting groups for current word
@@ -33,6 +34,7 @@ vmap <C-Down> ]egv
 let mapleader = ","
 nmap <leader>v :tabedit $MYVIMRC<CR>
 
+autocmd vimenter * if !argc() | NERDTree | endif
 
 " Press F3 to toggle insert(paste) on/off.
 :noremap <F3> :set paste! paste?<CR>
