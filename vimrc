@@ -4,13 +4,16 @@ call pathogen#helptags()
 set ts=4
 set sm
 set ai
-filetype plugin on
+filetype plugin on 
+set encoding=utf-8
+
 syntax on
 colorscheme af
 set number
 
 if has("autocmd")
 	autocmd bufwritepost .vimrc source $MYVIMRC
+	autocmd BufNewFile,BufRead *.json set ft=javascript
 endif
 
 " show highlighting groups for current word
