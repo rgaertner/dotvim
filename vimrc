@@ -5,6 +5,8 @@ set ts=4
 set sm
 set ai
 filetype plugin on
+set encoding=utf-8
+
 syntax on
 colorscheme af
 set number
