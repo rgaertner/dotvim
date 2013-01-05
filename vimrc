@@ -4,7 +4,7 @@ call pathogen#helptags()
 set ts=4
 set sm
 set ai
-filetype plugin on 
+filetype plugin on
 set encoding=utf-8
 
 syntax on
@@ -15,7 +15,7 @@ au BufEnter *.hs compiler ghc
 
 if has("autocmd")
 	autocmd bufwritepost .vimrc source $MYVIMRC
-	autocmd BufNewFile,BufRead *.json set ft=javascript
+	autocmd BufRead,BufNewFile *.json setfiletype javascript
 endif
 
 " show highlighting groups for current word
@@ -56,6 +56,13 @@ let g:ghc = "/usr/bin/ghc"
 
 let mapleader = ","
 nmap <leader>v :tabedit $MYVIMRC<CR>
+
+autocmd vimenter * if !argc() | NERDTree | endif
+
+" Press F3 to toggle insert(paste) on/off.
+:noremap <F3> :set paste! paste?<CR>
+" Press F4 to toggle highlighting on/off, and show current value.
+:noremap <F4> :set hlsearch! hlsearch?<CR>
 
 let java_highlight_all=1
 let java_highlight_functions="style"

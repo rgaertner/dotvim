@@ -7,6 +7,9 @@
 [submodule "bundle/tabular"]
 	path = bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
+[submodule "bundle/nerdtree"]
+	path = bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
 [submodule "bundle/unicode-haskell"]
 	path = bundle/unicode-haskell
 	url = git://github.com/frerich/unicode-haskell.git
