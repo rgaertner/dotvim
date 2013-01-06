@@ -1,0 +1,6 @@
+/doc/tags
+*~
+*.swp
+*.swo
+/test/.urchin.log
+/test/vim/.urchin.log
