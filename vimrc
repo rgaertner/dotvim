@@ -27,6 +27,11 @@ function! <SID>SynStack()
 	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
+" define zen coding leader key
+if !exists('g:user_zen_leader_key')
+  let g:user_zen_leader_key = 'z'
+endif
+
 "" tab navigation
 map <C-Tab> :tabn <CR>
 map <C-S-Tab> :tabp <CR>
@@ -53,7 +58,6 @@ let g:haddock_browser = "/usr/bin/google-chrome"
 
 let g:ghc = "/usr/bin/ghc"
 
-
 let mapleader = ","
 nmap <leader>v :tabedit $MYVIMRC<CR>
 
@@ -63,6 +67,9 @@ autocmd vimenter * if !argc() | NERDTree | endif
 :noremap <F3> :set paste! paste?<CR>
 " Press F4 to toggle highlighting on/off, and show current value.
 :noremap <F4> :set hlsearch! hlsearch?<CR>
+
+" define code completion shortcut to Ctrl-Space
+inoremap <Nul> <C-n>
 
 let java_highlight_all=1
 let java_highlight_functions="style"
