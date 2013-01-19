@@ -80,10 +80,11 @@ hi WarningMsg	 ctermfg=1
 hi WildMenu	 ctermfg=0 ctermbg=3
 hi Folded	 ctermfg=darkgrey ctermbg=NONE
 hi FoldColumn	 ctermfg=darkgrey ctermbg=NONE
-hi DiffAdd	 ctermbg=4
-hi DiffChange	 ctermbg=5
-hi DiffDelete	 cterm=bold ctermfg=4 ctermbg=6
-hi DiffText	 cterm=bold ctermbg=1
+" diff {{{1
+hi DiffText                cterm=UNDERLINE ctermfg=black        ctermbg=red
+hi DiffChange              cterm=UNDERLINE ctermfg=black        ctermbg=lightgray
+hi DiffDelete              cterm=NONE      ctermfg=black        ctermbg=blue
+hi DiffAdd                 cterm=UNDERLINE ctermfg=black        ctermbg=cyan
 hi Comment	 ctermfg=darkcyan
 hi Constant	 ctermfg=brown
 hi Special	 ctermfg=5
