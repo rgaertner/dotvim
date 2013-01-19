@@ -16,3 +16,6 @@
 [submodule "bundle/shim"]
 	path = bundle/shim
 	url = git://github.com/vim-scripts/Superior-Haskell-Interaction-Mode-SHIM.git
+[submodule "nerdcommenter"]
+	path = nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
