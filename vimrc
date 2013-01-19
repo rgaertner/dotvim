@@ -10,9 +10,18 @@ set encoding=utf-8
 syntax on
 colorscheme af
 set number
-
+" default history just holds up to 20 entries
+set history=1000
 " show completion options
 set wildmode=list:longest
+
+" allow Vim to manage multiple buffers effectively
+set hidden
+
+" enable search highlighting
+set hlsearch
+" enable extended % matching
+runtime macros/matchit.vim
 
 au BufEnter *.hs compiler ghc
 
@@ -76,6 +85,11 @@ autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
 " define code completion shortcut to Ctrl-Space
 inoremap <Nul> <C-n>
+
+" swap 'jump to mark' commands: ` is more useful but keyboard location is
+" worse
+nnoremap ' `
+nnoremap ` '
 
 let java_highlight_all=1
 let java_highlight_functions="style"
