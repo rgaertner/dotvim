@@ -11,6 +11,9 @@ syntax on
 colorscheme af
 set number
 
+" show completion options
+set wildmode=list:longest
+
 au BufEnter *.hs compiler ghc
 
 if has("autocmd")
