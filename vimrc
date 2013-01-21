@@ -30,6 +30,16 @@ if has("autocmd")
 	autocmd BufRead,BufNewFile *.json setfiletype javascript
 endif
 
+
+augroup HaskellCompile
+	autocmd!
+	autocmd bufwritepost *.hs :call CompileHaskell()
+augroup END
+
+function! CompileHaskell ()
+	! ghc -o %< --make %
+endfunction
+
 " show highlighting groups for current word
 nmap <C-S-P> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
@@ -72,8 +82,9 @@ let g:ghc = "/usr/bin/ghc"
 
 let mapleader = ","
 nmap <leader>v :tabedit $MYVIMRC<CR>
+nmap <leader>b :ConqueTermVSplit bash<CR>
 
-autocmd vimenter * if !argc() | NERDTree | endif
+" autocmd vimenter * if !argc() | NERDTree | endif
 autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
@@ -82,6 +93,8 @@ autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 :noremap <F3> :set paste! paste?<CR>
 " Press F4 to toggle highlighting on/off, and show current value.
 :noremap <F4> :set hlsearch! hlsearch?<CR>
+" Press F5 to toggle NERDTree 
+:noremap <F5> :NERDTreeToggle<CR>
 
 " define code completion shortcut to Ctrl-Space
 inoremap <Nul> <C-n>
