@@ -33,6 +33,7 @@ endif
 
 augroup HaskellCompile
 	autocmd!
+        set et ts=8 sw=4 sta
 	autocmd bufwritepost *.hs :call CompileHaskell()
 augroup END
 
@@ -103,6 +104,12 @@ inoremap <Nul> <C-n>
 " worse
 nnoremap ' `
 nnoremap ` '
+
+" map escape to more convinient sequence 'jk' in insert mode
+inoremap jk <Esc>
+
+" change dir to open window
+nnoremap <leader>cd :lcd%:p:h
 
 let java_highlight_all=1
 let java_highlight_functions="style"
