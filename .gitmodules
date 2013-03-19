@@ -22,3 +22,6 @@
 [submodule "bundle/vim-surround"]
 	path = bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
+[submodule "bundle/csv.vim"]
+	path = bundle/csv.vim
+	url = git://github.com/chrisbra/csv.vim.git
