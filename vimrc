@@ -61,7 +61,7 @@ endfunc
 
 " define zen coding leader key
 if !exists('g:user_zen_leader_key')
-  let g:user_zen_leader_key = 'z'
+  let g:user_zen_leader_key = ';'
 endif
 
 "" tab navigation
@@ -93,6 +93,7 @@ let g:ghc = "/usr/bin/ghc"
 let mapleader = ","
 nmap <leader>v :tabedit $MYVIMRC<CR>
 nmap <leader>b :ConqueTermVSplit bash<CR>
+nmap <leader>x :%!xmllint --encode UTF-8 --format -<CR>
 
 " autocmd vimenter * if !argc() | NERDTree | endif
 autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
