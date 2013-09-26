@@ -94,6 +94,7 @@ let mapleader = ","
 nmap <leader>v :tabedit $MYVIMRC<CR>
 nmap <leader>b :ConqueTermVSplit bash<CR>
 nmap <leader>x :%!xmllint --encode UTF-8 --format -<CR>
+nmap <leader>j :%!python -m json.tool<CR>
 
 " autocmd vimenter * if !argc() | NERDTree | endif
 autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
