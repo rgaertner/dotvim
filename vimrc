@@ -38,6 +38,7 @@ let did_load_csvfiletype=1
 
 augroup filetypedetect
    au! BufRead,BufNewFile *.csv,*.dat setfiletype csv
+   au BufRead,BufNewFile *.md set filetype=markdown
 augroup END
 
 augroup HaskellCompile
@@ -121,6 +122,10 @@ inoremap jk <Esc>
 
 " change dir to open window
 nnoremap <leader>cd :lcd%:p:h
+
+" SML make code {{{
+autocmd FileType sml setlocal makeprg=rlwrap\ sml\ -P\ full\ '%'
+" }}}
 
 let java_highlight_all=1
 let java_highlight_functions="style"
