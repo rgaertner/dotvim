@@ -15,6 +15,8 @@ set history=1000
 " show completion options
 set wildmode=list:longest
 
+set listchars=tab:>-,trail:- " show tabs like >---
+set colorcolumn=80
 " allow Vim to manage multiple buffers effectively
 set hidden
 
