@@ -4,10 +4,8 @@ call pathogen#helptags()
 set ts=4
 set sm
 set ai
-filetype plugin on
 set encoding=utf-8
 
-syntax on
 colorscheme af
 set number
 " default history just holds up to 20 entries
@@ -19,6 +17,17 @@ set listchars=tab:>-,trail:- " show tabs like >---
 set colorcolumn=80
 " allow Vim to manage multiple buffers effectively
 set hidden
+
+" recommended settings from
+" https://github.com/vim-ruby/vim-ruby/wiki/VimRubySupport
+set nocompatible      " We're running Vim, not Vi!
+syntax on             " Enable syntax highlighting
+filetype on           " Enable filetype detection
+filetype indent on    " Enable filetype-specific indenting
+filetype plugin on    " Enable filetype-specific plugins
+filetype plugin indent on 
+set omnifunc=syntaxcomplete#Complete
+
 
 " enable search highlighting
 set hlsearch
