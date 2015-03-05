@@ -40,3 +40,6 @@
 [submodule "bundle/supertab"]
 	path = bundle/supertab
 	url = git://github.com/vim-scripts/supertab.git
+[submodule "bundle/vim-ruby-refactoring"]
+	path = bundle/vim-ruby-refactoring
+	url = https://github.com/ecomba/vim-ruby-refactoring.git
