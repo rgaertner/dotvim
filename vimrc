@@ -28,6 +28,7 @@ filetype plugin on    " Enable filetype-specific plugins
 filetype plugin indent on 
 set omnifunc=syntaxcomplete#Complete
 
+autocmd FileType rb,yml autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 " enable search highlighting
 set hlsearch
@@ -77,8 +78,8 @@ if !exists('g:user_zen_leader_key')
 endif
 
 "" tab navigation
-map <C-Tab> :tabn <CR>
-map <C-S-Tab> :tabp <CR>
+nnoremap <C-Right> :tabn <CR>
+nnoremap <C-Left> :tabp <CR>
 map <C-1> 1gt
 map <C-2> 2gt
 map <C-3> 3gt
@@ -104,12 +105,25 @@ let g:ghc = "/usr/bin/ghc"
 
 let mapleader = ","
 nmap <leader>v :tabedit $MYVIMRC<CR>
+nmap <leader>g :tabdo :Gstatus <CR>
 nmap <leader>b :ConqueTermVSplit bash<CR>
 nmap <leader>x :%!xmllint --encode UTF-8 --format -<CR>
 nmap <leader>j :%!python -m json.tool<CR>
 
+let g:airline_powerline_fonts = 1
+let g:syntastic_ruby_checkers = ['rubocop','mri']
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+
 " autocmd vimenter * if !argc() | NERDTree | endif
-autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+" autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
@@ -119,7 +133,9 @@ autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 :noremap <F4> :set hlsearch! hlsearch?<CR>
 " Press F5 to toggle NERDTree 
 :noremap <F5> :NERDTreeToggle<CR>
-
+map <leader>r :NERDTreeFind<cr>
+" Pres F6 for search word under cursor in all files
+map <F6> :execute " grep -srnw --binary-files=without-match --exclude-dir=.git --exclude-from=$HOME/.vim/exclude.list . -e " . expand("<cword>") . " " <bar> cwindow<CR>
 " define code completion shortcut to Ctrl-Space
 inoremap <Nul> <C-n>
 
