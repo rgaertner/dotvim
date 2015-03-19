@@ -1,0 +1,98 @@
+
+"""""""""""""""""""""""
+" Global Options
+"""""""""""""""""""""""
+let g:EasyClipYankHistorySize = get(g:, 'EasyClipYankHistorySize', 50)
+let g:EasyClipShowYanksWidth = get(g:, 'EasyClipShowYanksWidth', 80)
+let g:EasyClipAutoFormat = get(g:, 'EasyClipAutoFormat', 0)
+let g:EasyClipEnableBlackHoleRedirect = get(g:, 'EasyClipEnableBlackHoleRedirect', 1)
+let g:EasyClipUseCutDefaults = get(g:, 'EasyClipUseCutDefaults', 1)
+let g:EasyClipUseSubstituteDefaults = get(g:, 'EasyClipUseSubstituteDefaults', 0)
+let g:EasyClipUsePasteToggleDefaults = get(g:, 'EasyClipUsePasteToggleDefaults', 1)
+let g:EasyClipUsePasteDefaults = get(g:, 'EasyClipUsePasteDefaults', 1)
+let g:EasyClipAlwaysMoveCursorToEndOfPaste = get(g:, 'EasyClipAlwaysMoveCursorToEndOfPaste', 0)
+let g:EasyClipUseYankDefaults = get(g:, 'EasyClipUseYankDefaults', 1)
+let g:EasyClipPreserveCursorPositionAfterYank = get(g:, 'EasyClipPreserveCursorPositionAfterYank', 0)
+let g:EasyClipShareYanks = get(g:, 'EasyClipShareYanks', 0)
+let g:EasyClipShareYanksFile = get(g:, 'EasyClipShareYanksFile', '.easyclip')
+let g:EasyClipShareYanksDirectory = get(g:, 'EasyClipShareYanksDirectory', '$HOME')
+
+let g:EasyClipEnableBlackHoleRedirectForChangeOperator = get(g:, 'EasyClipEnableBlackHoleRedirectForChangeOperator', 1)
+let g:EasyClipEnableBlackHoleRedirectForDeleteOperator = get(g:, 'EasyClipEnableBlackHoleRedirectForDeleteOperator', 1)
+let g:EasyClipEnableBlackHoleRedirectForSelectOperator = get(g:, 'EasyClipEnableBlackHoleRedirectForSelectOperator', 1)
+
+"""""""""""""""""""""""
+" Functions
+"""""""""""""""""""""""
+function! EasyClip#GetDefaultReg()
+    let clipboard_flags = split(&clipboard, ',')
+    if index(clipboard_flags, 'unnamedplus') >= 0
+        return "+"
+    elseif index(clipboard_flags, 'unnamed') >= 0
+        return "*"
+    else
+        return "\""
+    endif
+endfunction
+
+" Only add the given mapping if it doesn't already exist
+function! EasyClip#AddWeakMapping(left, right, modes, ...)
+
+    let recursive = a:0 > 0 ? a:1 : 0
+
+    for mode in split(a:modes, '\zs')
+        if !EasyClip#HasMapping(a:left, mode)
+            exec mode . (recursive ? "map" : "noremap") . " <silent> " . a:left . " " . a:right
+        endif
+    endfor
+endfunction
+
+function! EasyClip#HasMapping(mapping, mode)
+    return maparg(a:mapping, a:mode) != ''
+endfunction
+
+function! EasyClip#GetCurrentYank()
+    return getreg(EasyClip#GetDefaultReg())
+endfunction
+
+function! EasyClip#SetCurrentYank(yank)
+    call setreg(EasyClip#GetDefaultReg(), a:yank)
+    EasyClipOnYanksChanged
+endfunction
+
+function! EasyClip#Yank(str)
+    EasyClipBeforeYank
+    exec "let @". EasyClip#GetDefaultReg() . "='". a:str . "'"
+    EasyClipOnYanksChanged
+endfunction
+
+function! EasyClip#CheckRequiredDependencies()
+
+    try
+        " This should have no effect when it succeeds
+        call repeat#invalidate()
+    catch /\VUnknown function/
+        echohl ErrorMsg
+        echo 'Could not find vim-repeat installed.  EasyClip requires vim-repeat to function properly.  Please install vim-repeat and restart Vim'
+        echohl None
+    catch
+        " function exists, ignore
+    endtry
+endfunction
+function! EasyClip#Init()
+
+    augroup easyclip_checkdependencies
+        autocmd!
+        autocmd VimEnter * call EasyClip#CheckRequiredDependencies()
+    augroup END
+
+    call EasyClip#Paste#Init()
+    call EasyClip#Move#Init()
+    call EasyClip#Substitute#Init()
+    call EasyClip#Yank#Init()
+    call EasyClip#Shared#Init()
+
+    " Add black hole bindings last so that it only
+    " adds bindings if they are not taken
+    call EasyClip#BlackHole#Init()
+endfunction
