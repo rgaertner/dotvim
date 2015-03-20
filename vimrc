@@ -109,6 +109,7 @@ nmap <leader>g :tabnew <CR>:Gstatus<CR>
 nmap <leader>s :ConqueTermVSplit bash<CR>
 nmap <leader>x :%!xmllint --encode UTF-8 --format -<CR>
 nmap <leader>j :%!python -m json.tool<CR>
+nmap <leader>nf :NERDTreeTabsFind<cr>
 
 let g:airline_powerline_fonts = 1
 let g:syntastic_ruby_checkers = ['rubocop','mri']
@@ -132,8 +133,7 @@ autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 " Press F4 to toggle highlighting on/off, and show current value.
 :noremap <F4> :set hlsearch! hlsearch?<CR>
 " Press F5 to toggle NERDTree 
-:noremap <F5> :NERDTreeToggle<CR>
-map <leader>r :NERDTreeFind<cr>
+:noremap <F5> :NERDTreeTabsToggle<CR>
 " Pres F6 for search word under cursor in all files
 map <F6> :execute " grep -srnw --binary-files=without-match --exclude-dir=.git --exclude-from=$HOME/.vim/exclude.list . -e " . expand("<cword>") . " " <bar> cwindow<CR>
 " define code completion shortcut to Ctrl-Space
