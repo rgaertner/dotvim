@@ -73,12 +73,12 @@
 [submodule "bundle/vim-easymotion"]
 	path = bundle/vim-easymotion
 	url = https://github.com/Lokaltog/vim-easymotion
-[submodule "vim-repeat"]
-	path = vim-repeat
-	url = git://github.com/tpope/vim-repeat.git
 [submodule "bundle/vim-easyclip"]
 	path = bundle/vim-easyclip
 	url = https://github.com/svermeulen/vim-easyclip.git
 [submodule "bundle/apidock"]
 	path = bundle/apidock
 	url = https://github.com/mileszs/apidock.vim.git
+[submodule "bundle/vim-repeat"]
+	path = bundle/vim-repeat
+	url = git://github.com/tpope/vim-repeat.git
