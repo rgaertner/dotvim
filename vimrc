@@ -1,6 +1,7 @@
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
+set shell=/bin/bash
 set ts=4
 set sm
 set ai
