@@ -7,6 +7,8 @@ set sm
 set ai
 set encoding=utf-8
 
+set clipboard=unnamedplus
+
 colorscheme af
 set number
 " default history just holds up to 20 entries
