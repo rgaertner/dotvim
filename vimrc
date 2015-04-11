@@ -45,6 +45,10 @@ if has("autocmd")
 	autocmd BufRead,BufNewFile *.json setfiletype javascript
 endif
 
+" Don't reset twice on reloading - 'compatible' has SO many side effects.
+if !exists('s:loaded_my_vimrc')
+  source ~/.vim/ignore.vim
+endif
 
 if exists("did_load_csvfiletype")
    finish
