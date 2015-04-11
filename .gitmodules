@@ -82,3 +82,6 @@
 [submodule "bundle/vim-repeat"]
 	path = bundle/vim-repeat
 	url = git://github.com/tpope/vim-repeat.git
+[submodule "bundle/sonicpi"]
+	path = bundle/sonicpi
+	url = https://github.com/dermusikman/sonicpi.vim.git
