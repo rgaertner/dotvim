@@ -118,6 +118,7 @@ nmap <leader>x :%!xmllint --encode UTF-8 --format -<CR>
 nmap <leader>j :%!python -m json.tool<CR>
 nmap <leader>nf :NERDTreeTabsFind<cr>
 
+let g:sonicpi_enabled = 1
 let g:airline_powerline_fonts = 1
 let g:syntastic_ruby_checkers = ['rubocop','mri']
 
