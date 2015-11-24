@@ -112,7 +112,7 @@ let g:ghc = "/usr/bin/ghc"
 
 let mapleader = ","
 nmap <leader>v :tabedit $MYVIMRC<CR>
-nmap <leader>g :tabedit git<CR>:Gstatus<CR>
+nmap <leader>g :tabedit! git<CR>:NERDTreeTabsClose<CR>:Gstatus<CR>
 nmap <leader>s :ConqueTermVSplit bash<CR>
 nmap <leader>x :%!xmllint --encode UTF-8 --format -<CR>
 nmap <leader>j :%!python -m json.tool<CR>
