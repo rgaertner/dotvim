@@ -85,3 +85,15 @@
 [submodule "bundle/sonicpi"]
 	path = bundle/sonicpi
 	url = https://github.com/dermusikman/sonicpi.vim.git
+[submodule "bundle/vim-pathogen"]
+	path = bundle/vim-pathogen
+	url = https://github.com/tpope/vim-pathogen.git
+[submodule "bundle/jinja2"]
+	path = bundle/jinja2
+	url = https://github.com/mitsuhiko/jinja2.git
+[submodule "bundle/vim-jinja2-syntax"]
+	path = bundle/vim-jinja2-syntax
+	url = https://github.com/Glench/Vim-Jinja2-Syntax.git
+[submodule "bundle/ghcmod-vim"]
+	path = bundle/ghcmod-vim
+	url = git@github.com:eagletmt/ghcmod-vim.git
