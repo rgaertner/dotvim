@@ -116,7 +116,10 @@ nmap <leader>g :tabedit! git<CR>:NERDTreeTabsClose<CR>:Gstatus<CR>
 nmap <leader>s :ConqueTermVSplit bash<CR>
 nmap <leader>x :%!xmllint --encode UTF-8 --format -<CR>
 nmap <leader>j :%!python -m json.tool<CR>
-nmap <leader>nf :NERDTreeTabsFind<cr>
+nmap <leader>nf :NERDTreeTabsFind<CR>
+nmap <leader>nt :tabnew<CR>
+nmap <leader>ct :tabclose<CR>
+nmap <leader>q :q<CR>
 
 let g:sonicpi_enabled = 1
 let g:airline_powerline_fonts = 1
