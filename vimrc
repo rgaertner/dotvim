@@ -58,6 +58,7 @@ let did_load_csvfiletype=1
 augroup filetypedetect
    au! BufRead,BufNewFile *.csv,*.dat setfiletype csv
    au BufRead,BufNewFile *.md set filetype=markdown
+   au BufRead,BufNewFile *.sls set filetype=jinja
 augroup END
 
 augroup HaskellCompile
