@@ -15,7 +15,7 @@ set encoding=utf-8
 set clipboard=unnamedplus
 
 colorscheme af
-set number
+"set number
 " default history just holds up to 20 entries
 set history=1000
 " show completion options
