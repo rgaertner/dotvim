@@ -1,5 +1,10 @@
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+" To disable a plugin, add it's bundle name to the following list
+let g:pathogen_disabled = []
+call add(g:pathogen_disabled, 'jslint')
+call pathogen#infect()
+"call pathogen#runtime_append_all_bundles()
+"call pathogen#helptags()
 
 set shell=/bin/bash
 set ts=4
@@ -17,7 +22,7 @@ set history=1000
 set wildmode=list:longest
 
 set listchars=tab:>-,trail:- " show tabs like >---
-set colorcolumn=80
+" set colorcolumn=80
 " allow Vim to manage multiple buffers effectively
 set hidden
 
@@ -38,7 +43,7 @@ set hlsearch
 " enable extended % matching
 runtime macros/matchit.vim
 
-au BufEnter *.hs compiler ghc
+" au BufEnter *.hs compiler ghc
 
 if has("autocmd")
 	autocmd bufwritepost .vimrc source $MYVIMRC
@@ -130,13 +135,15 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+set runtimepath+=/home/rongae/work/vim-mpc/
+
 "let g:syntastic_always_populate_loc_list = 1
 "let g:syntastic_auto_loc_list = 1
 "let g:syntastic_check_on_open = 1
 "let g:syntastic_check_on_wq = 0
 
 " autocmd vimenter * if !argc() | NERDTree | endif
-" autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
@@ -165,7 +172,6 @@ nnoremap <leader>cd :lcd%:p:h
 " SML make code {{{
 autocmd FileType sml setlocal makeprg=rlwrap\ sml\ -P\ full\ '%'
 " }}}
-
 let java_highlight_all=1
 let java_highlight_functions="style"
 
