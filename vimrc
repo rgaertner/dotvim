@@ -105,12 +105,13 @@ map <C-9> 9gt
 map <C-0> :tablast<CR>
 
 "" move single lines
-nmap <C-Up> [e
-nmap <C-Down> ]e
-
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+inoremap <C-j> <Esc>:m .+1<CR>==gi
+inoremap <C-k> <Esc>:m .-2<CR>==gi
 " move mutliple visually selected lines
-vmap <C-Up> [egv
-vmap <C-Down> ]egv
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
 
 let g:haddock_browser = "/usr/bin/google-chrome"
 
