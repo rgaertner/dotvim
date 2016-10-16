@@ -10,9 +10,6 @@
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule "bundle/unicode-haskell"]
-	path = bundle/unicode-haskell
-	url = git://github.com/frerich/unicode-haskell.git
 [submodule "bundle/shim"]
 	path = bundle/shim
 	url = git://github.com/vim-scripts/Superior-Haskell-Interaction-Mode-SHIM.git
@@ -87,7 +84,7 @@
 	url = https://github.com/dermusikman/sonicpi.vim.git
 [submodule "bundle/vim-pathogen"]
 	path = bundle/vim-pathogen
-	url = https://github.com/tpope/vim-pathogen.git
+	url = git@github.com:tpope/vim-pathogen.git
 [submodule "bundle/jinja2"]
 	path = bundle/jinja2
 	url = https://github.com/mitsuhiko/jinja2.git
