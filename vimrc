@@ -113,8 +113,9 @@ inoremap <C-j> <Esc>:m .+1<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
-let g:haddock_browser = "/usr/bin/google-chrome"
+let g:rustfmt_autosave = 1
 
+let g:haddock_browser = "/usr/bin/google-chrome"
 let g:ghc = "/usr/bin/ghc"
 
 let mapleader = ","
