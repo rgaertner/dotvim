@@ -1,13 +1,13 @@
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 " To disable a plugin, add it's bundle name to the following list
-let g:pathogen_disabled = []
-call add(g:pathogen_disabled, 'jslint')
+let g:pathogen_disabled = ['jslint.vim']
+call add(g:pathogen_disabled, 'jslint.vim')
 call pathogen#infect()
 "call pathogen#runtime_append_all_bundles()
 "call pathogen#helptags()
 
-set shell=/bin/bash
-set ts=4
+set shell=/bin/zsh
+set ts=2 sw=2 expandtab
 set sm
 set ai
 set encoding=utf-8
@@ -108,7 +108,7 @@ map <C-0> :tablast<CR>
 nnoremap <C-j> :m .+1<CR>==
 nnoremap <C-k> :m .-2<CR>==
 inoremap <C-j> <Esc>:m .+1<CR>==gi
-inoremap <C-k> <Esc>:m .-2<CR>==gi
+"inoremap <C-k> <Esc>:m .-2<CR>==gi
 " move mutliple visually selected lines
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
