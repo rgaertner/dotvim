@@ -157,6 +157,8 @@ autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 :noremap <F5> :NERDTreeTabsToggle<CR>
 " Pres F6 for search word under cursor in all files
 map <F6> :execute " grep -srnw --binary-files=without-match --exclude-dir=.git --exclude-from=$HOME/.vim/exclude.list . -e " . expand("<cword>") . " " <bar> cwindow<CR>
+" Press F7 to toggle Explore for file handling 
+:noremap <F7> :Explore<CR>
 " define code completion shortcut to Ctrl-Space
 inoremap <Nul> <C-n>
 
